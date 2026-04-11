@@ -661,72 +661,89 @@ function playVid(card){
 function openPriceModal(){document.getElementById('priceModal').classList.add('open');document.body.style.overflow='hidden'}
 function closePriceModal(){document.getElementById('priceModal').classList.remove('open');document.body.style.overflow=''}
 
-// Touch-drag for scroll wheels: drag left/right, hold to pause, release to resume
+// Touch-drag for scroll wheels: drag left/right, hold to pause, release to resume smoothly
 document.querySelectorAll('.proof, .get-grid, .dual-grid, .test-track').forEach(track=>{
-  let startX,scrollLeft,isDragging=false,wasDragging=false;
+  let startX,startOffset,isDragging=false;
   const wrap=track.parentElement;
   
-  function getPos(){return track.getBoundingClientRect().left - wrap.getBoundingClientRect().left}
+  function getCurrentOffset(){
+    const style=window.getComputedStyle(track);
+    const matrix=new DOMMatrix(style.transform);
+    return matrix.m41;
+  }
   
-  track.addEventListener('touchstart',e=>{
-    isDragging=true;wasDragging=false;
-    startX=e.touches[0].pageX;
-    scrollLeft=getPos();
+  function pause(){
+    const offset=getCurrentOffset();
     track.style.animationPlayState='paused';
+    track.style.animation='none';
+    track.style.transform='translateX('+offset+'px)';
+    return offset;
+  }
+  
+  function resume(){
+    const offset=getCurrentOffset();
+    const totalWidth=track.scrollWidth/2;
+    // Calculate how far through the loop we are (as a percentage)
+    const normalizedOffset=((offset % totalWidth) + totalWidth) % totalWidth;
+    const pct=(normalizedOffset/totalWidth)*100;
+    // Get the original animation name and duration
+    const origAnim=track.dataset.anim;
+    const origDur=parseFloat(track.dataset.dur);
+    if(!origAnim)return;
+    track.style.animation='';
+    track.style.transform='';
+    // Restart animation with negative delay to pick up from current position
+    const delay=-(origDur*(1-pct/100));
+    track.style.animation=origAnim+' '+origDur+'s linear infinite';
+    track.style.animationDelay=delay+'s';
+  }
+  
+  // Store original animation info on load
+  const cs=window.getComputedStyle(track);
+  const animName=cs.animationName;
+  const animDur=parseFloat(cs.animationDuration);
+  if(animName&&animName!=='none'){
+    track.dataset.anim=animName;
+    track.dataset.dur=animDur;
+  }
+  
+  // Touch events
+  track.addEventListener('touchstart',e=>{
+    isDragging=true;
+    startOffset=pause();
+    startX=e.touches[0].pageX;
   },{passive:true});
   
   track.addEventListener('touchmove',e=>{
     if(!isDragging)return;
-    wasDragging=true;
-    const x=e.touches[0].pageX;
-    const diff=x-startX;
-    track.style.animation='none';
-    track.style.transform='translateX('+(scrollLeft+diff)+'px)';
+    const diff=e.touches[0].pageX-startX;
+    track.style.transform='translateX('+(startOffset+diff)+'px)';
   },{passive:true});
   
   track.addEventListener('touchend',()=>{
     isDragging=false;
-    // Resume animation after a short delay
-    setTimeout(()=>{
-      track.style.animation='';
-      track.style.transform='';
-      track.style.animationPlayState='';
-    },wasDragging?1500:0);
+    setTimeout(resume,1200);
   });
   
-  // Mouse drag for desktop
+  // Mouse events
   track.addEventListener('mousedown',e=>{
-    isDragging=true;wasDragging=false;
+    isDragging=true;
+    startOffset=pause();
     startX=e.pageX;
-    scrollLeft=getPos();
-    track.style.animationPlayState='paused';
     track.style.cursor='grabbing';
   });
   track.addEventListener('mousemove',e=>{
     if(!isDragging)return;
-    wasDragging=true;
     e.preventDefault();
-    const diff=e.pageX-startX;
-    track.style.animation='none';
-    track.style.transform='translateX('+(scrollLeft+diff)+'px)';
+    track.style.transform='translateX('+(startOffset+(e.pageX-startX))+'px)';
   });
   track.addEventListener('mouseup',()=>{
     isDragging=false;
     track.style.cursor='';
-    setTimeout(()=>{
-      track.style.animation='';
-      track.style.transform='';
-      track.style.animationPlayState='';
-    },wasDragging?1500:0);
+    setTimeout(resume,1200);
   });
   track.addEventListener('mouseleave',()=>{
-    if(isDragging){
-      isDragging=false;
-      track.style.cursor='';
-      track.style.animation='';
-      track.style.transform='';
-      track.style.animationPlayState='';
-    }
+    if(isDragging){isDragging=false;track.style.cursor='';setTimeout(resume,300)}
   });
 });
 </script>
