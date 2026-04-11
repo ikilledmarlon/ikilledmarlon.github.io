@@ -134,22 +134,27 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .proof-lbl{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-top:4px}
 
 /* ===== WHAT YOU GET GRID ===== */
-.get-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:48px}
-@media(min-width:600px){.get-grid{grid-template-columns:1fr 1fr;gap:14px}}
-@media(min-width:1000px){.get-grid{grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}}
-.get-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:all .4s}
+.get-grid{display:flex;gap:12px;margin-top:48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:none}
+.get-grid::-webkit-scrollbar{display:none}
+.get-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:all .4s;flex-shrink:0;width:280px;scroll-snap-align:start}
+@media(min-width:600px){.get-grid{flex-wrap:wrap;overflow-x:visible;scroll-snap-type:none}.get-card{flex-shrink:1;width:calc(50% - 7px)}}
+@media(min-width:1000px){.get-card{width:calc(25% - 12px)}}
 .get-card:hover{border-color:rgba(232,146,42,.2);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.3)}
 .get-icon{font-size:1.6rem;margin-bottom:16px}
 .get-card h3{font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);margin-bottom:8px}
 .get-card p{font-size:13px;color:var(--steel);line-height:1.7}
 
+/* ===== CTA BAR ===== */
+.cta-bar{text-align:center;padding:32px 20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(232,146,42,.03)}
+.cta-bar .btn{font-size:11px;padding:14px 36px}
+
 /* ===== DUAL TRACK MODULES ===== */
 .dual-header{margin-bottom:48px}
-.dual-grid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:768px){.dual-grid{grid-template-columns:1fr 1fr;gap:14px}}
+.dual-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:none}
+.dual-grid::-webkit-scrollbar{display:none}
 
-.track-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;transition:all .4s}
-@media(min-width:768px){.track-card{padding:36px 28px}}
+.track-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;transition:all .4s;flex-shrink:0;width:280px;scroll-snap-align:start}
+@media(min-width:768px){.dual-grid{flex-wrap:wrap;overflow-x:visible;scroll-snap-type:none}.track-card{flex-shrink:1;width:calc(50% - 7px);padding:36px 28px}}
 .track-card:hover{border-color:rgba(232,146,42,.2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
 .track-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:0;transition:opacity .4s}
 .track-card:hover::before{opacity:1}
@@ -335,6 +340,8 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
   </div>
 </section>
 
+<div class="cta-bar"><a href="#invest" class="btn">View Pricing <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+
 <!-- DUAL TRACK MODULES -->
 <section class="sec sec-alt" id="modules">
   <div class="container">
@@ -364,6 +371,8 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
   </div>
 </section>
 
+<div class="cta-bar"><a href="#invest" class="btn">View Pricing <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+
 <!-- 60-DAY TIMELINE -->
 <section class="sec">
   <div class="container">
@@ -376,6 +385,8 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
     </div>
   </div>
 </section>
+
+<div class="cta-bar"><a href="#invest" class="btn">View Pricing <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
 
 <!-- TESTIMONIALS -->
 <section class="sec sec-alt">
@@ -400,6 +411,8 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
     </div>
   </div>
 </section>
+
+<div class="cta-bar"><a href="#invest" class="btn">View Pricing <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
 
 <!-- MENTOR -->
 <section class="sec" id="mentor">
