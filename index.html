@@ -113,8 +113,10 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .sec{padding:80px 0;position:relative}
 @media(min-width:768px){.sec{padding:120px 0}}
 .sec-alt{background:var(--bg2)}
-.sec-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.sec-label{font-family:var(--mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:14px}
 .sec-label::before{content:'';width:28px;height:1px;background:var(--amber)}
+.sec-label-lg{font-size:14px;letter-spacing:2px;color:var(--amber-light);font-weight:600}
+@media(min-width:768px){.sec-label-lg{font-size:16px}}
 .sec-title{font-family:var(--display);font-size:clamp(28px,5vw,52px);font-weight:700;color:var(--white);line-height:1;margin-bottom:16px;letter-spacing:-1px}
 .sec-title em{font-style:normal;color:var(--amber);font-weight:700}
 .sec-desc{font-size:15px;color:var(--steel);line-height:1.8;max-width:500px}
@@ -125,10 +127,12 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .sec-center .sec-desc{margin:0 auto}
 
 /* ===== PROOF STRIP ===== */
-.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
-@media(min-width:600px){.proof{grid-template-columns:repeat(4,1fr)}}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
+@media(min-width:600px){.proof{grid-template-columns:repeat(5,1fr)}}
 .proof-item{text-align:center;padding:28px 12px;border-right:1px solid var(--border)}
 .proof-item:last-child{border-right:none}
+.proof-item:nth-child(n+4){display:none}
+@media(min-width:600px){.proof-item:nth-child(n+4){display:block}}
 .proof-val{font-family:var(--display);font-size:28px;font-weight:800;color:var(--amber)}
 @media(min-width:768px){.proof-val{font-size:34px}}
 .proof-lbl{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-top:4px}
@@ -173,9 +177,21 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .tl::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--amber),rgba(232,146,42,.15))}
 .tl-item{margin-bottom:32px;position:relative}
 .tl-dot{position:absolute;left:-28px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px rgba(232,146,42,.4)}
-.tl-week{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
-.tl-title{font-family:var(--display);font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px}
+.tl-week{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:4px;font-weight:600}
+.tl-title{font-family:var(--display);font-size:22px;font-weight:700;color:var(--white);margin-bottom:4px}
+@media(min-width:768px){.tl-week{font-size:13px}.tl-title{font-size:24px}}
 .tl-desc{font-size:13px;color:var(--steel);line-height:1.7}
+
+/* ===== VIDEO REELS ===== */
+.vid-scroll{display:flex;gap:16px;margin-top:48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:none}
+.vid-scroll::-webkit-scrollbar{display:none}
+.vid-card{flex-shrink:0;width:220px;scroll-snap-align:start;border-radius:16px;overflow:hidden;position:relative;background:var(--card);border:1px solid var(--border);transition:border-color .3s}
+@media(min-width:768px){.vid-card{width:260px}}
+.vid-card:hover{border-color:rgba(232,146,42,.25)}
+.vid-card video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:15px}
+.vid-card .vid-placeholder{width:100%;aspect-ratio:9/16;background:var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--steel);font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.vid-card .vid-placeholder svg{opacity:.4}
+.vid-label{padding:12px 16px;font-family:var(--mono);font-size:10px;color:var(--steel);letter-spacing:1px;text-transform:uppercase;text-align:center}
 
 /* ===== TESTIMONIALS ===== */
 .test-track-wrap{overflow:hidden;margin-top:48px;position:relative}
@@ -266,7 +282,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 
 <!-- NAV -->
 <nav class="nav"><div class="nav-in">
-  <img src="stb-logo-icon.png" alt="STB" class="nav-logo">
+  <a href="#" style="font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:-0.5px">STB</a>
   <div class="nav-links">
     <a href="#system" class="nav-link">The System</a>
     <a href="#modules" class="nav-link">Modules</a>
@@ -278,7 +294,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 
 <!-- LAUNCH STRIP -->
 <div class="launch-strip">
-  <p>Platinum Edition · Enrolling Now</p>
+  <p>Mentorship Masterclass — Enroll Now</p>
 </div>
 
 <!-- COUNTDOWN BLOCK -->
@@ -295,7 +311,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-edition">Platinum Edition</div>
+  <div class="hero-edition">Dual Mentorship · Platinum Edition</div>
   <h1>The Systematic<br>Trader's <em>Blueprint</em><br>Mentorship Masterclass</h1>
   <p class="hero-tagline">Trade Like an Algo. Engineered for Consistency.</p>
   <p class="hero-desc">Two mentorships in one. A complete trading system rebuilt from the ground up — plus a full Trading Psychology Masterclass rooted in neuroplasticity, Mark Douglas principles, and peak performance training. 60 days of structured group mentorship.</p>
@@ -315,6 +331,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 
 <!-- PROOF STRIP -->
 <div class="proof">
+  <div class="proof-item"><div class="proof-val">Dual</div><div class="proof-lbl">Mentorship</div></div>
   <div class="proof-item"><div class="proof-val">8</div><div class="proof-lbl">System Modules</div></div>
   <div class="proof-item"><div class="proof-val">4</div><div class="proof-lbl">Psychology Modules</div></div>
   <div class="proof-item"><div class="proof-val">10K+</div><div class="proof-lbl">Verified Trades</div></div>
@@ -324,7 +341,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- WHAT YOU GET -->
 <section class="sec" id="system">
   <div class="container">
-    <div class="rv"><div class="sec-label">What You Get</div><h2 class="sec-title">Two Mentorships. <em>One Program.</em><br>A Complete Operating System<br>for Building a Consistent Trader.</h2><p class="sec-desc">A trading system mentorship and a full psychology masterclass — running simultaneously. Because edge without discipline is just information.</p></div>
+    <div class="rv"><div class="sec-label">What You Get</div><h2 class="sec-title">Dual Mentorship. <em>One Program.</em><br>A Complete Operating System<br>for Building a Consistent Trader.</h2><p class="sec-desc">A trading system mentorship and a full psychology masterclass — running simultaneously. Because edge without discipline is just information.</p></div>
     <div class="get-grid">
       <div class="get-card rv"><div class="get-icon">⚡</div><h3>New Trading Systems</h3><p>Rebuilt from the data up. Pattern-based strategies with quantitatively validated entries, stops, and targets across 10,000+ verified trades.</p></div>
       <div class="get-card rv rv-d1"><div class="get-icon">📊</div><h3>Proprietary Indicators</h3><p>Full NinjaScript suite — pattern detection paintbars, signal overlays, and real-time trade management tools. Every indicator purpose-built and coded in-house.</p></div>
@@ -345,10 +362,10 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- DUAL TRACK MODULES -->
 <section class="sec sec-alt" id="modules">
   <div class="container">
-    <div class="rv sec-center dual-header"><div class="sec-label">Two Mentorships in One</div><h2 class="sec-title">8 System Modules.<br>4 Psychology Masterclass Modules.<br><em>Running in Parallel.</em></h2><p class="sec-desc">A complete trading system paired with a full Trading Psychology Masterclass — built on neuroplasticity, Mark Douglas principles, Al Brooks methodologies, and elite performance training. Every module includes a short follow-up video sent the following week to reinforce key concepts.</p></div>
+    <div class="rv sec-center dual-header"><div class="sec-label">Dual Mentorship Curriculum</div><h2 class="sec-title">8 System Modules.<br>4 Psychology Masterclass Modules.<br><em>Running in Parallel.</em></h2><p class="sec-desc">A complete trading system paired with a full Trading Psychology Masterclass — built on neuroplasticity, Mark Douglas principles, Al Brooks methodologies, and elite performance training. Every module includes a short follow-up video sent the following week to reinforce key concepts.</p></div>
 
     <!-- SYSTEM TRACK -->
-    <div class="rv" style="margin-bottom:12px"><div class="sec-label">Track A — The System</div></div>
+    <div class="rv" style="margin-bottom:12px"><div class="sec-label sec-label-lg">Track A — The System</div></div>
     <div class="dual-grid rv">
       <div class="track-card"><span class="track-num">01</span><div class="track-badge track-badge-system">System</div><h3>Bar Structure & Market Language</h3><p>Bar types, formations, and context classification. Buy/sell zones and how to use them for entry structuring. Time-of-day significance, the scalping advantage, and how to study like a professional.</p></div>
       <div class="track-card"><span class="track-num">02</span><div class="track-badge track-badge-system">System</div><h3>Breakouts & Price Structure</h3><p>The breakout process — spikes, legs, and implied breakouts. Assessing breakout strength with relative factors. Counting legs, fractal structure, bull/bear structural units, and what happens when everything fails.</p></div>
@@ -361,7 +378,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
     </div>
 
     <!-- MIND TRACK -->
-    <div class="rv" style="margin-top:48px;margin-bottom:12px"><div class="sec-label">Track B — Trading Psychology Masterclass</div></div>
+    <div class="rv" style="margin-top:48px;margin-bottom:12px"><div class="sec-label sec-label-lg">Track B — Trading Psychology Masterclass</div></div>
     <div class="dual-grid rv">
       <div class="track-card"><span class="track-num">01</span><div class="track-badge track-badge-mind">Masterclass</div><h3>Rewiring Your Trading Brain</h3><p>Neuroplasticity and how your brain adapts to build new skills. Understanding the whole brain state, the three parts of your mind for trading, and why knowing your brain increases cognitive performance under pressure.</p></div>
       <div class="track-card"><span class="track-num">02</span><div class="track-badge track-badge-mind">Masterclass</div><h3>Self-Image, Comfort Zones & Mental Rehearsal</h3><p>Why you keep making the same mistakes — the self-image and performance connection. Reprogramming your comfort zone, mental rehearsal for execution, and understanding the three phases every trader must navigate.</p></div>
@@ -387,6 +404,20 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 </section>
 
 <div class="cta-bar"><a href="#invest" class="btn">View Pricing <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+
+<!-- TRADE VIDEOS -->
+<section class="sec" id="trades">
+  <div class="container">
+    <div class="rv sec-center"><div class="sec-label">Live Execution</div><h2 class="sec-title">See the System <em>in Action.</em></h2></div>
+  </div>
+  <div class="vid-scroll" style="padding-left:max(20px,calc((100vw - 1100px)/2 + 20px));padding-right:20px">
+    <div class="vid-card"><video src="videos/vid1.mp4" playsinline muted loop autoplay></video><div class="vid-label">Trade Breakdown</div></div>
+    <div class="vid-card"><video src="videos/vid2.mp4" playsinline muted loop autoplay></video><div class="vid-label">Live Entry</div></div>
+    <div class="vid-card"><video src="videos/vid3.mp4" playsinline muted loop autoplay></video><div class="vid-label">Scalp Execution</div></div>
+    <div class="vid-card"><video src="videos/vid4.mp4" playsinline muted loop autoplay></video><div class="vid-label">Reversal Setup</div></div>
+    <div class="vid-card"><video src="videos/vid5.mp4" playsinline muted loop autoplay></video><div class="vid-label">Breakout Trade</div></div>
+  </div>
+</section>
 
 <!-- TESTIMONIALS -->
 <section class="sec sec-alt">
@@ -441,13 +472,13 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- PRICING -->
 <section class="sec sec-alt" id="invest">
   <div class="container">
-    <div class="rv sec-center"><div class="sec-label">Your Investment</div><h2 class="sec-title">Two Mentorships.<br><em>One Price.</em></h2></div>
+    <div class="rv sec-center"><div class="sec-label">Your Investment</div><h2 class="sec-title">Dual Mentorship.<br><em>One Price.</em></h2></div>
     <div class="price-card rv">
       <p class="price-note" style="margin-bottom:16px;font-size:14px;color:var(--steel)">Trading System Mentorship — <span style="color:var(--white)">$2,500</span><br>Psychology Masterclass — <span style="color:var(--white)">$1,500</span></p>
-      <p class="price-note" style="margin-bottom:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--steel)">Combined Value</p>
+      <p class="price-note" style="margin-bottom:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--steel)">Dual Mentorship · Combined Value</p>
       <div class="price-old">$4,000</div>
       <div class="price-amt">$1,500</div>
-      <div class="price-save">Save $2,500 — Both Included</div>
+      <div class="price-save">Save $2,500 — Dual Mentorship Included</div>
       <p class="price-note">One-time payment · No subscriptions · No hidden fees</p>
       <ul class="price-list">
         <li><span class="chk">✓</span> 8 system modules (rebuilt from scratch)</li>
@@ -509,7 +540,6 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 
 <!-- FOOTER -->
 <footer>
-  <img src="stb-logo-full.png" alt="Systematic Trader's Blueprint" class="footer-logo">
   <div class="flinks">
     <a href="https://www.instagram.com/ikilledmarlon" target="_blank">Instagram</a>
     <a href="https://www.paypal.com/ncp/payment/LANKWFTKHP86N" target="_blank">Enroll</a>
