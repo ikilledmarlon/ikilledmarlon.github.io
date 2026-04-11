@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Systematic Trader's Blueprint — Genesis Edition</title>
+<title>The Systematic Trader's Blueprint — Platinum Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -62,11 +62,11 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 @media(min-width:768px){.cd-block{padding:64px 40px;margin-top:104px}}
 .cd-label{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
 .cd-date{font-family:var(--display);font-size:clamp(20px,4vw,28px);font-weight:700;color:var(--white);margin-bottom:24px}
-.cd-grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.cd-grid{display:flex;justify-content:center;gap:8px;flex-wrap:nowrap}
 @media(min-width:500px){.cd-grid{gap:16px}}
-.cd-unit{background:var(--card);border:1px solid rgba(232,146,42,.15);border-radius:12px;padding:16px 12px;min-width:72px;text-align:center}
-@media(min-width:768px){.cd-unit{padding:24px 20px;min-width:100px;border-radius:16px}}
-.cd-val{font-family:var(--display);font-size:clamp(36px,8vw,56px);font-weight:800;color:var(--amber);line-height:1}
+.cd-unit{background:var(--card);border:1px solid rgba(232,146,42,.15);border-radius:10px;padding:12px 0;flex:1;max-width:80px;text-align:center}
+@media(min-width:768px){.cd-unit{padding:24px 20px;max-width:120px;border-radius:16px}}
+.cd-val{font-family:var(--display);font-size:clamp(28px,7vw,56px);font-weight:800;color:var(--amber);line-height:1}
 .cd-lbl{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-top:6px}
 
 /* ===== HERO ===== */
@@ -125,12 +125,10 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .sec-center .sec-desc{margin:0 auto}
 
 /* ===== PROOF STRIP ===== */
-.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
-@media(min-width:600px){.proof{grid-template-columns:repeat(5,1fr)}}
+.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
+@media(min-width:600px){.proof{grid-template-columns:repeat(4,1fr)}}
 .proof-item{text-align:center;padding:28px 12px;border-right:1px solid var(--border)}
 .proof-item:last-child{border-right:none}
-.proof-item:nth-child(n+4){display:none}
-@media(min-width:600px){.proof-item:nth-child(n+4){display:block}}
 .proof-val{font-family:var(--display);font-size:28px;font-weight:800;color:var(--amber)}
 @media(min-width:768px){.proof-val{font-size:34px}}
 .proof-lbl{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-top:4px}
@@ -175,9 +173,14 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .tl-desc{font-size:13px;color:var(--steel);line-height:1.7}
 
 /* ===== TESTIMONIALS ===== */
-.test-scroll{display:flex;gap:16px;margin-top:48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:16px;scrollbar-width:none}
-.test-scroll::-webkit-scrollbar{display:none}
-.tcard{flex-shrink:0;width:300px;scroll-snap-align:start;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;position:relative;transition:border-color .3s}
+.test-track-wrap{overflow:hidden;margin-top:48px;position:relative}
+.test-track-wrap::before,.test-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:40px;z-index:2;pointer-events:none}
+.test-track-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
+.test-track-wrap::after{right:0;background:linear-gradient(270deg,var(--bg2),transparent)}
+.test-track{display:flex;gap:16px;width:max-content;animation:marquee 50s linear infinite}
+.test-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tcard{flex-shrink:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;position:relative;transition:border-color .3s}
 @media(min-width:768px){.tcard{width:360px;padding:32px 28px}}
 .tcard:hover{border-color:rgba(232,146,42,.25)}
 .tcard .qm{font-family:Georgia,serif;font-size:72px;line-height:1;color:var(--amber);opacity:.12;position:absolute;top:4px;left:16px}
@@ -265,18 +268,18 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
     <a href="#mentor" class="nav-link">Mentor</a>
     <a href="#invest" class="nav-link">Invest</a>
   </div>
-  <a href="https://www.paypal.com/ncp/payment/KNY2SYAV7BKVU" class="nav-cta" target="_blank" rel="noopener">Enroll</a>
+  <a href="https://www.paypal.com/ncp/payment/LANKWFTKHP86N" class="nav-cta" target="_blank" rel="noopener">Enroll</a>
 </div></nav>
 
 <!-- LAUNCH STRIP -->
 <div class="launch-strip">
-  <p>Genesis Edition · Enrolling Now</p>
+  <p>Platinum Edition · Enrolling Now</p>
 </div>
 
 <!-- COUNTDOWN BLOCK -->
 <div class="cd-block">
-  <div class="cd-label">Genesis Edition Launches In</div>
-  <div class="cd-date">May 10, 2026 · 9:30 AM ET</div>
+  <div class="cd-label">Mentorship Masterclass Launches In</div>
+  <div class="cd-date">May 10, 2026 · 12:00 PM ET</div>
   <div class="cd-grid">
     <div class="cd-unit"><div class="cd-val" id="cd-d">--</div><div class="cd-lbl">Days</div></div>
     <div class="cd-unit"><div class="cd-val" id="cd-h">--</div><div class="cd-lbl">Hours</div></div>
@@ -287,21 +290,20 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-edition">Genesis Edition</div>
-  <h1>The Systematic<br>Trader's <em>Blueprint</em></h1>
+  <div class="hero-edition">Platinum Edition</div>
+  <h1>The Systematic<br>Trader's <em>Blueprint</em><br>Mentorship Masterclass</h1>
   <p class="hero-tagline">Trade Like an Algo. Engineered for Consistency.</p>
-  <p class="hero-desc">A ground-up rebuild of everything — new systems, new indicators, new curriculum, new psychology program with guided meditations. 60 days of structured mentorship designed to transform how you read markets, manage risk, and execute under pressure.</p>
+  <p class="hero-desc">Two mentorships in one. A complete trading system rebuilt from the ground up — plus a full Trading Psychology Masterclass rooted in neuroplasticity, Mark Douglas principles, and peak performance training. 60 days of structured group mentorship.</p>
   <div class="hero-actions">
-    <a href="https://www.paypal.com/ncp/payment/KNY2SYAV7BKVU" class="btn btn-lg" target="_blank" rel="noopener">
-      <span>Enroll — $1,500</span>
+    <a href="#system" class="btn btn-lg">Explore the Program
       <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <a href="#system" class="btn btn-outline">Explore the Program</a>
   </div>
   <div class="hero-meta">
     <div class="hero-meta-item"><div class="hero-meta-val">60</div><div class="hero-meta-lbl">Day Program</div></div>
-    <div class="hero-meta-item"><div class="hero-meta-val">8+8</div><div class="hero-meta-lbl">Dual-Track Modules</div></div>
-    <div class="hero-meta-item"><div class="hero-meta-val">$1,500</div><div class="hero-meta-lbl">One-Time</div></div>
+    <div class="hero-meta-item"><div class="hero-meta-val">8+4</div><div class="hero-meta-lbl">Dual-Track Modules</div></div>
+    <div class="hero-meta-item"><div class="hero-meta-val">10K+</div><div class="hero-meta-lbl">Verified Trades</div></div>
+    <div class="hero-meta-item"><div class="hero-meta-val">Funded</div><div class="hero-meta-lbl">Multi-Prop Firm</div></div>
     <div class="hero-meta-item"><div class="hero-meta-val">∞</div><div class="hero-meta-lbl">Lifetime Access</div></div>
   </div>
 </section>
@@ -309,25 +311,26 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- PROOF STRIP -->
 <div class="proof">
   <div class="proof-item"><div class="proof-val">8</div><div class="proof-lbl">System Modules</div></div>
-  <div class="proof-item"><div class="proof-val">8</div><div class="proof-lbl">Psychology Modules</div></div>
-  <div class="proof-item"><div class="proof-val">1:1</div><div class="proof-lbl">Private Coaching</div></div>
-  <div class="proof-item"><div class="proof-val">10K+</div><div class="proof-lbl">Backtested Trades</div></div>
+  <div class="proof-item"><div class="proof-val">4</div><div class="proof-lbl">Psychology Modules</div></div>
+  <div class="proof-item"><div class="proof-val">10K+</div><div class="proof-lbl">Verified Trades</div></div>
   <div class="proof-item"><div class="proof-val">∞</div><div class="proof-lbl">Lifetime Access</div></div>
 </div>
 
 <!-- WHAT YOU GET -->
 <section class="sec" id="system">
   <div class="container">
-    <div class="rv"><div class="sec-label">What You Get</div><h2 class="sec-title">Not a Course.<br>A Complete <em>Operating System.</em></h2><p class="sec-desc">Two parallel tracks running simultaneously — one for the technical system, one for the mind behind it. Because edge without discipline is just information.</p></div>
+    <div class="rv"><div class="sec-label">What You Get</div><h2 class="sec-title">Two Mentorships. <em>One Program.</em><br>A Complete Operating System<br>for Building a Consistent Trader.</h2><p class="sec-desc">A trading system mentorship and a full psychology masterclass — running simultaneously. Because edge without discipline is just information.</p></div>
     <div class="get-grid">
-      <div class="get-card rv"><div class="get-icon">⚡</div><h3>New Trading Systems</h3><p>Rebuilt from the data up. Pattern-based strategies with quantitatively validated entries, stops, and targets across 10,000+ backtested trades.</p></div>
+      <div class="get-card rv"><div class="get-icon">⚡</div><h3>New Trading Systems</h3><p>Rebuilt from the data up. Pattern-based strategies with quantitatively validated entries, stops, and targets across 10,000+ verified trades.</p></div>
       <div class="get-card rv rv-d1"><div class="get-icon">📊</div><h3>Proprietary Indicators</h3><p>Full NinjaScript suite — pattern detection paintbars, signal overlays, and real-time trade management tools. Every indicator purpose-built and coded in-house.</p></div>
-      <div class="get-card rv rv-d2"><div class="get-icon">🎯</div><h3>Automated Chart Traders</h3><p>Custom NinjaTrader chart traders that define your entry, stop, and target — placed for you automatically, calculated by your max risk. Click to confirm. No guesswork.</p></div>
-      <div class="get-card rv"><div class="get-icon">🧘</div><h3>Psychology + Guided Meditation</h3><p>8 dedicated modules on the mental game — each paired with a guided meditation recording designed specifically for traders, not generic mindfulness.</p></div>
-      <div class="get-card rv rv-d1"><div class="get-icon">🎙️</div><h3>1:1 Coaching via Zoom + Discord</h3><p>Three structured sessions with PA Monty via Zoom. Plus ongoing access through Discord for questions, screen shares, chart reviews, and community engagement.</p></div>
-      <div class="get-card rv rv-d2"><div class="get-icon">📖</div><h3>Interactive Study Guides</h3><p>Visual guides for every module — annotated charts, pattern drills, review templates. Built for deliberate practice, not passive consumption.</p></div>
-      <div class="get-card rv"><div class="get-icon">📹</div><h3>Recorded Training Library</h3><p>Comprehensive pre-recorded sessions covering every concept, chart breakdown, and trade analysis. Rewatch at your pace, on your schedule.</p></div>
-      <div class="get-card rv rv-d1"><div class="get-icon">🔒</div><h3>Lifetime Access + Community</h3><p>All materials, indicator updates, and future additions — permanently yours. Private Discord community and mailing list for ongoing education.</p></div>
+      <div class="get-card rv rv-d2"><div class="get-icon">🎯</div><h3>Automated Trade Entries</h3><p>Custom NinjaTrader chart traders that define your entry, stop, and target — placed for you automatically, calculated by your max risk. Click to confirm. No guesswork.</p></div>
+      <div class="get-card rv"><div class="get-icon">🧠</div><h3>Trading Psychology Masterclass</h3><p>A complete mental game program — neuroplasticity, emotional IQ, self-image reprogramming, and Mark Douglas-inspired performance frameworks. Overcome repeated mistakes, stop exiting winners early, and build real confidence in execution.</p></div>
+      <div class="get-card rv rv-d1"><div class="get-icon">🎙️</div><h3>Group Coaching via Zoom + Discord</h3><p>Structured group coaching sessions via Zoom, plus ongoing access through Discord for questions, screen shares, chart reviews, and community engagement.</p></div>
+      <div class="get-card rv rv-d2"><div class="get-icon">📖</div><h3>Interactive Study Guides + Visuals</h3><p>University-quality study guides for every module — Microsoft Whiteboard, pattern drills, review templates, and flash cards. Built for deliberate practice, not passive consumption.</p></div>
+      <div class="get-card rv"><div class="get-icon">📹</div><h3>Recorded Training Library</h3><p>Get access to 30+ hours of recorded sessions from past mentorship cohorts, breaking down the complete Systematic Trader's Blueprint — from core frameworks to live trade analysis and execution. Study it anytime, at your own pace.</p></div>
+      <div class="get-card rv rv-d1"><div class="get-icon">📓</div><h3>Trade Journal + Psychology Journal</h3><p>Two structured journals issued at onboarding — a trade journal for logging and reviewing every setup, and a psychology journal for tracking mindset, emotional patterns, and mental performance over time.</p></div>
+      <div class="get-card rv rv-d2"><div class="get-icon">🎓</div><h3>Graduation Certificate</h3><p>Complete your 100-trade backtest and earn an official graduation certificate from The Systematic Trader's Blueprint — proof of structured training and disciplined execution.</p></div>
+      <div class="get-card rv"><div class="get-icon">🔒</div><h3>Lifetime Access + Community</h3><p>All materials, indicator updates, and future additions — permanently yours. Private Discord community and mailing list for ongoing education.</p></div>
     </div>
   </div>
 </section>
@@ -335,32 +338,28 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- DUAL TRACK MODULES -->
 <section class="sec sec-alt" id="modules">
   <div class="container">
-    <div class="rv sec-center dual-header"><div class="sec-label">Dual-Track Curriculum</div><h2 class="sec-title">8 System Modules.<br>8 Psychology Modules.<br><em>Running in Parallel.</em></h2><p class="sec-desc">Each week pairs a technical system module with a corresponding psychology module — so your mindset evolves at the same pace as your execution.</p></div>
+    <div class="rv sec-center dual-header"><div class="sec-label">Two Mentorships in One</div><h2 class="sec-title">8 System Modules.<br>4 Psychology Masterclass Modules.<br><em>Running in Parallel.</em></h2><p class="sec-desc">A complete trading system paired with a full Trading Psychology Masterclass — built on neuroplasticity, Mark Douglas principles, Al Brooks methodologies, and elite performance training. Every module includes a short follow-up video sent the following week to reinforce key concepts.</p></div>
 
     <!-- SYSTEM TRACK -->
     <div class="rv" style="margin-bottom:12px"><div class="sec-label">Track A — The System</div></div>
     <div class="dual-grid rv">
-      <div class="track-card"><span class="track-num">01</span><div class="track-badge track-badge-system">System</div><h3>Price Action Foundations</h3><p>Reading bars, market structure, chart configuration, and the language price speaks.</p></div>
-      <div class="track-card"><span class="track-num">02</span><div class="track-badge track-badge-system">System</div><h3>Trend Context & Direction</h3><p>Higher highs & lows, EMA dynamic guides, primary vs secondary movements, trend strength signals.</p></div>
-      <div class="track-card"><span class="track-num">03</span><div class="track-badge track-badge-system">System</div><h3>Structure Breaks & Breakouts</h3><p>Valid vs false BoS, breakout qualification, pullback entries, inside/outside bar setups.</p></div>
-      <div class="track-card"><span class="track-num">04</span><div class="track-badge track-badge-system">System</div><h3>Two-Leg Mechanics</h3><p>ABC pullbacks, second-leg traps, measured moves, and the psychology behind two-legged corrections.</p></div>
-      <div class="track-card"><span class="track-num">05</span><div class="track-badge track-badge-system">System</div><h3>Pullbacks & Re-Entry Logic</h3><p>High 1/High 2 patterns, EMA pullback execution, micro trendline breaks, reversal vs continuation.</p></div>
-      <div class="track-card"><span class="track-num">06</span><div class="track-badge track-badge-system">System</div><h3>Reversals & Climax Patterns</h3><p>Wedges, three-push structures, double tops/bottoms with BoS confirmation, climax exhaustion.</p></div>
-      <div class="track-card"><span class="track-num">07</span><div class="track-badge track-badge-system">System</div><h3>Ranges, Chop & Transition</h3><p>Trading range anatomy, barb wire navigation, range-to-trend detection, staying patient in noise.</p></div>
-      <div class="track-card"><span class="track-num">08</span><div class="track-badge track-badge-system">System</div><h3>Live Execution & Integration</h3><p>Complete analysis framework, entry criteria, risk management, real-time decision trees, common pitfalls.</p></div>
+      <div class="track-card"><span class="track-num">01</span><div class="track-badge track-badge-system">System</div><h3>Bar Structure & Market Language</h3><p>Bar types, formations, and context classification. Buy/sell zones and how to use them for entry structuring. Time-of-day significance, the scalping advantage, and how to study like a professional.</p></div>
+      <div class="track-card"><span class="track-num">02</span><div class="track-badge track-badge-system">System</div><h3>Breakouts & Price Structure</h3><p>The breakout process — spikes, legs, and implied breakouts. Assessing breakout strength with relative factors. Counting legs, fractal structure, bull/bear structural units, and what happens when everything fails.</p></div>
+      <div class="track-card"><span class="track-num">03</span><div class="track-badge track-badge-system">System</div><h3>Market Behavior I — Control & Volatility</h3><p>Event-response dynamics. Inter- vs intra-bar energy. The three types of market control. Cyclical volatility, regime shifts, and the principle of ambiguity — why the market resists clarity.</p></div>
+      <div class="track-card"><span class="track-num">04</span><div class="track-badge track-badge-system">System</div><h3>Market Behavior II — Inertia & Tests</h3><p>Market tempo and its probabilities. The first-attempt principle and why second attempts matter. Tests, the two-test principle, H1/L1 and H2/L2 setups — implied vs actual.</p></div>
+      <div class="track-card"><span class="track-num">05</span><div class="track-badge track-badge-system">System</div><h3>Market Behavior III — Symmetry & Two Sides</h3><p>Symmetry and proportion — possibilities, exceptions, and how to read disproportionate structure. The principle of two sides, market-maker probabilities, and reading both buy- and sell-side context.</p></div>
+      <div class="track-card"><span class="track-num">06</span><div class="track-badge track-badge-system">System</div><h3>Day Structure & Session Context</h3><p>Predictable day structures and their probabilities. Dominant feature identification, behavior shifts, overnight/pre-market context, opening gaps, and the opening range as a decision framework.</p></div>
+      <div class="track-card"><span class="track-num">07</span><div class="track-badge track-badge-system">System</div><h3>Ranges, Wedges & Reversals</h3><p>Trading range mechanics — legs, buy/sell zones, and nested patterns. Wedges, triangles, and expanding structures. Reversal signals, the three price point principle, and minor vs major reversals.</p></div>
+      <div class="track-card"><span class="track-num">08</span><div class="track-badge track-badge-system">System</div><h3>Traps, Failures & Scalp Execution</h3><p>Traps as failed breakouts. FOF setups (trend resumption), point-of-clarity traps, and market-maker trades. Avoid 50/50 scalping, limit vs stop entries, trading against trapped traders, and adjusting style to market cycle and day structure.</p></div>
     </div>
 
     <!-- MIND TRACK -->
-    <div class="rv" style="margin-top:48px;margin-bottom:12px"><div class="sec-label">Track B — The Mind</div></div>
+    <div class="rv" style="margin-top:48px;margin-bottom:12px"><div class="sec-label">Track B — Trading Psychology Masterclass</div></div>
     <div class="dual-grid rv">
-      <div class="track-card"><span class="track-num">01</span><div class="track-badge track-badge-mind">Psychology</div><h3>Awareness & Self-Audit</h3><p>Identifying your trading personality, emotional triggers, and unconscious biases. Guided meditation: stillness before the session.</p></div>
-      <div class="track-card"><span class="track-num">02</span><div class="track-badge track-badge-mind">Psychology</div><h3>Fear & Hesitation</h3><p>Why you freeze at entries, skip valid setups, and exit too early. Guided meditation: releasing the need for certainty.</p></div>
-      <div class="track-card"><span class="track-num">03</span><div class="track-badge track-badge-mind">Psychology</div><h3>Revenge Trading & Tilt</h3><p>The anatomy of a spiral — triggers, interruption, recovery. Guided meditation: detachment from outcome.</p></div>
-      <div class="track-card"><span class="track-num">04</span><div class="track-badge track-badge-mind">Psychology</div><h3>Discipline & Process Trust</h3><p>Following rules when emotion says otherwise. Guided meditation: anchoring to process over result.</p></div>
-      <div class="track-card"><span class="track-num">05</span><div class="track-badge track-badge-mind">Psychology</div><h3>Patience & Selective Action</h3><p>The skill of doing nothing. Waiting for A+ setups without forcing mediocre trades. Guided meditation: comfort in stillness.</p></div>
-      <div class="track-card"><span class="track-num">06</span><div class="track-badge track-badge-mind">Psychology</div><h3>Confidence Calibration</h3><p>Confidence vs recklessness. Sizing correctly, trusting reads without ego. Guided meditation: grounded presence.</p></div>
-      <div class="track-card"><span class="track-num">07</span><div class="track-badge track-badge-mind">Psychology</div><h3>Loss Acceptance & Recovery</h3><p>Reframing loss as data. Building resilience without suppressing emotion. Guided meditation: impermanence and renewal.</p></div>
-      <div class="track-card"><span class="track-num">08</span><div class="track-badge track-badge-mind">Psychology</div><h3>Peak Performance & Flow</h3><p>Operating at your best consistently — routines, pre-session rituals, performance habits. Guided meditation: entering the zone.</p></div>
+      <div class="track-card"><span class="track-num">01</span><div class="track-badge track-badge-mind">Masterclass</div><h3>Rewiring Your Trading Brain</h3><p>Neuroplasticity and how your brain adapts to build new skills. Understanding the whole brain state, the three parts of your mind for trading, and why knowing your brain increases cognitive performance under pressure.</p></div>
+      <div class="track-card"><span class="track-num">02</span><div class="track-badge track-badge-mind">Masterclass</div><h3>Self-Image, Comfort Zones & Mental Rehearsal</h3><p>Why you keep making the same mistakes — the self-image and performance connection. Reprogramming your comfort zone, mental rehearsal for execution, and understanding the three phases every trader must navigate.</p></div>
+      <div class="track-card"><span class="track-num">03</span><div class="track-badge track-badge-mind">Masterclass</div><h3>Emotional IQ, Resilience & Skill Isolation</h3><p>Building emotional intelligence for trading. Isolating and developing specific trading skills. Rewiring the negativity bias, solving problem-focus thinking, and using force multipliers to accelerate training results.</p></div>
+      <div class="track-card"><span class="track-num">04</span><div class="track-badge track-badge-mind">Masterclass</div><h3>Mental Toughness, Abundance & Peak Performance</h3><p>Forging an unstoppable no-limit mindset. Building abundance, setting goals that actually drive attainment, and cultivating the habits of elite performers. Putting it all together into your own personal mindset program.</p></div>
     </div>
   </div>
 </section>
@@ -368,12 +367,12 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- 60-DAY TIMELINE -->
 <section class="sec">
   <div class="container">
-    <div class="rv"><div class="sec-label">The 60-Day Arc</div><h2 class="sec-title">Structured From<br><em>Day 1 to Graduation</em></h2><p class="sec-desc">Not a content library you abandon. A deliberate sequence with milestones, deadlines, and accountability at every phase.</p></div>
+    <div class="rv"><div class="sec-label">The 60-Day Arc</div><h2 class="sec-title">Structured From<br><em>Day 1 to Graduation</em></h2><p class="sec-desc">Not a content library you abandon. A deliberate bi-weekly cadence — 2 system modules and 1 psychology module every two weeks, with milestones, accountability, and a graduation certificate upon completion.</p></div>
     <div class="tl rv">
-      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Week 1</div><div class="tl-title">Onboarding & Setup</div><div class="tl-desc">60-min 1:1 Zoom session. Platform setup, indicator + chart trader installation, system orientation, Discord access, and psychology baseline.</div></div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Weeks 2–4</div><div class="tl-title">Foundation Phase</div><div class="tl-desc">System Modules 01–04 paired with Psychology Modules 01–04. Study guides, pattern drills, daily meditation practice. Ongoing Discord support.</div></div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Weeks 5–6</div><div class="tl-title">Advanced Phase</div><div class="tl-desc">System Modules 05–08 + Psychology 05–08. 60-min implementation review via Zoom with PA Monty.</div></div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Weeks 7–8</div><div class="tl-title">Backtest & Graduation</div><div class="tl-desc">100-trade backtest execution. Final 60-min Zoom performance review. Graduate into the private Discord community with lifetime access.</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Weeks 1–2</div><div class="tl-title">Onboarding & Foundation</div><div class="tl-desc">Group onboarding via Zoom. Platform setup, indicator + chart trader installation, Discord access. System Modules 01–02 + Psychology Module 01. Trade journal, psychology journal, and 100-trade backtest journal issued.</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Weeks 3–4</div><div class="tl-title">Structure & Behavior</div><div class="tl-desc">System Modules 03–04 + Psychology Module 02. Study guides, pattern drills, and follow-up videos. Ongoing Discord support + group coaching via Zoom.</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Weeks 5–6</div><div class="tl-title">Advanced Mechanics</div><div class="tl-desc">System Modules 05–06 + Psychology Module 03. Study guides, pattern drills, and follow-up videos. Group implementation review via Zoom.</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-week">Weeks 7–8</div><div class="tl-title">Execution, Mastery & Graduation</div><div class="tl-desc">System Modules 07–08 + Psychology Module 04. 100-trade backtest execution using your trade journal. Final group Zoom review. Graduation certificate issued upon completion.</div></div></div>
     </div>
   </div>
 </section>
@@ -381,15 +380,24 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- TESTIMONIALS -->
 <section class="sec sec-alt">
   <div class="container">
-    <div class="rv sec-center"><div class="sec-label">Real Results</div><h2 class="sec-title">Don't Take Our Word.<br><em>Hear From Real Traders.</em></h2></div>
+    <div class="rv sec-center"><div class="sec-label">Real Results</div><h2 class="sec-title"><em>Hear From Real Traders.</em></h2></div>
   </div>
-  <div class="test-scroll" style="padding-left:max(20px,calc((100vw - 1100px)/2 + 20px))">
-    <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I've worked in the financial industry for 9 years and have often seen the terms mentor and training used loosely. Marlon, however, is a true mentor. His program filled critical gaps in my ability to read price charts.</p><div class="auth"><div class="av">MF</div><div><div class="nm">MJ Foster</div><div class="rl">9 Years in Finance</div></div></div></div>
-    <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I've learned more in 5 weeks than I did in 5 years of trading on and off. Marlon's hands-on approach, backed by real market data, proves that his strategy works and is built for long-term profitability.</p><div class="auth"><div class="av">JC</div><div><div class="nm">Jonas Charles</div><div class="rl">Experienced Trader</div></div></div><div class="tag">5 weeks > 5 years</div></div>
-    <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">This mentorship takes the complex world of trading and simplifies it to a level anyone can understand. No one has broken it down as clearly as Marlon — and he has the results to back it up.</p><div class="auth"><div class="av">TJ</div><div><div class="nm">Todd James</div><div class="rl">STB Student</div></div></div></div>
-    <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I started with zero experience, yet the program is designed so well that you can begin trading with confidence from day one. I was funded in just three weeks on my very first prop firm evaluation.</p><div class="auth"><div class="av">JM</div><div><div class="nm">Jonnathan Monsalve</div><div class="rl">Zero to Funded</div></div></div><div class="tag">Funded in 3 weeks</div></div>
-    <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">After just one call with Marlon, things finally clicked. He explained concepts in a way that was clear, practical, and immediately useful. I gained more understanding than I have in five years.</p><div class="auth"><div class="av">AN</div><div><div class="nm">Anonymous</div><div class="rl">5 Years Experience</div></div></div></div>
-    <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">Signing up was one of the best decisions I've made — I'm already trading with more confidence and clarity. I'm truly glad I joined.</p><div class="auth"><div class="av">R</div><div><div class="nm">Ree</div><div class="rl">STB Student</div></div></div><div class="tag">Trading with confidence</div></div>
+  <div class="test-track-wrap">
+    <div class="test-track">
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I've worked in the financial industry for 9 years and have often seen the terms mentor and training used loosely. Marlon, however, is a true mentor. His program filled critical gaps in my ability to read price charts.</p><div class="auth"><div class="av">MF</div><div><div class="nm">MJ Foster</div><div class="rl">9 Years in Finance</div></div></div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I've learned more in 5 weeks than I did in 5 years of trading on and off. Marlon's hands-on approach, backed by real market data, proves that his strategy works and is built for long-term profitability.</p><div class="auth"><div class="av">JC</div><div><div class="nm">Jonas Charles</div><div class="rl">Experienced Trader</div></div></div><div class="tag">5 weeks > 5 years</div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">This mentorship takes the complex world of trading and simplifies it to a level anyone can understand. No one has broken it down as clearly as Marlon — and he has the results to back it up.</p><div class="auth"><div class="av">TJ</div><div><div class="nm">Todd James</div><div class="rl">STB Student</div></div></div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I started with zero experience, yet the program is designed so well that you can begin trading with confidence from day one. I was funded in just three weeks on my very first prop firm evaluation.</p><div class="auth"><div class="av">JM</div><div><div class="nm">Jonnathan Monsalve</div><div class="rl">Zero to Funded</div></div></div><div class="tag">Funded in 3 weeks</div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">After just one call with Marlon, things finally clicked. He explained concepts in a way that was clear, practical, and immediately useful. I gained more understanding than I have in five years.</p><div class="auth"><div class="av">AN</div><div><div class="nm">Anonymous</div><div class="rl">5 Years Experience</div></div></div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">Signing up was one of the best decisions I've made — I'm already trading with more confidence and clarity. I'm truly glad I joined.</p><div class="auth"><div class="av">R</div><div><div class="nm">Ree</div><div class="rl">STB Student</div></div></div><div class="tag">Trading with confidence</div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I've worked in the financial industry for 9 years and have often seen the terms mentor and training used loosely. Marlon, however, is a true mentor. His program filled critical gaps in my ability to read price charts.</p><div class="auth"><div class="av">MF</div><div><div class="nm">MJ Foster</div><div class="rl">9 Years in Finance</div></div></div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I've learned more in 5 weeks than I did in 5 years of trading on and off. Marlon's hands-on approach, backed by real market data, proves that his strategy works and is built for long-term profitability.</p><div class="auth"><div class="av">JC</div><div><div class="nm">Jonas Charles</div><div class="rl">Experienced Trader</div></div></div><div class="tag">5 weeks > 5 years</div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">This mentorship takes the complex world of trading and simplifies it to a level anyone can understand. No one has broken it down as clearly as Marlon — and he has the results to back it up.</p><div class="auth"><div class="av">TJ</div><div><div class="nm">Todd James</div><div class="rl">STB Student</div></div></div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">I started with zero experience, yet the program is designed so well that you can begin trading with confidence from day one. I was funded in just three weeks on my very first prop firm evaluation.</p><div class="auth"><div class="av">JM</div><div><div class="nm">Jonnathan Monsalve</div><div class="rl">Zero to Funded</div></div></div><div class="tag">Funded in 3 weeks</div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">After just one call with Marlon, things finally clicked. He explained concepts in a way that was clear, practical, and immediately useful. I gained more understanding than I have in five years.</p><div class="auth"><div class="av">AN</div><div><div class="nm">Anonymous</div><div class="rl">5 Years Experience</div></div></div></div>
+      <div class="tcard"><span class="qm">&ldquo;</span><p class="bdy">Signing up was one of the best decisions I've made — I'm already trading with more confidence and clarity. I'm truly glad I joined.</p><div class="auth"><div class="av">R</div><div><div class="nm">Ree</div><div class="rl">STB Student</div></div></div><div class="tag">Trading with confidence</div></div>
+    </div>
   </div>
 </section>
 
@@ -402,14 +410,15 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
         <div class="sec-label" style="justify-content:center;margin-bottom:12px">Your Mentor</div>
         <h3>PA Monty</h3>
         <div class="mentor-role">Systematic Trader · Quant Developer · NinjaScript Engineer</div>
-        <p>Consistently profitable, data-driven futures day trader specializing in structured price action on NQ. Every system, every indicator, every analytics tool in this program was designed, coded, backtested, and refined by hand.</p>
+        <p>Consistently profitable, data-driven futures day trader specializing in structured price action on NQ. Funded across multiple prop firms with verified payouts since 2022. Every system, every indicator, every analytics tool in this program was designed, coded, backtested, and refined by hand.</p>
         <p>Since Q4 2019, the mission has been singular: build rule-based trading systems that create genuine time freedom — enabling a <strong style="color:var(--white)">Christ-centered</strong>, purpose-driven life rooted in love, stewardship, and the discipline to walk the straight and narrow path.</p>
         <p>Influenced by <strong style="color:var(--white)">Dr. Al Brooks</strong> and <strong style="color:var(--white)">Ali Moin-Afshari</strong>, his frameworks transform discretion into structured process and emotional reaction into measurable edge.</p>
-        <div class="mentor-quote">&ldquo;The goal was never to create followers. It&rsquo;s to build self-sufficient traders who think independently and execute with clarity.&rdquo;</div>
+        <div class="mentor-quote">&ldquo;The goal is to not create dependency. It&rsquo;s to build self-sufficient traders who think independently, execute with clarity, and trade with confidence.&rdquo;</div>
         <div class="mentor-stats">
           <div><div class="m-stat-val">Q4 2019</div><div class="m-stat-lbl">Active Since</div></div>
-          <div><div class="m-stat-val">NQ Futures</div><div class="m-stat-lbl">Primary Market</div></div>
-          <div><div class="m-stat-val">10,000+</div><div class="m-stat-lbl">Backtested Trades</div></div>
+          <div><div class="m-stat-val">Funded</div><div class="m-stat-lbl">Multi-Prop Firm</div></div>
+          <div><div class="m-stat-val">2022+</div><div class="m-stat-lbl">Verified Payouts</div></div>
+          <div><div class="m-stat-val">10,000+</div><div class="m-stat-lbl">Verified Trades</div></div>
         </div>
       </div>
     </div>
@@ -419,26 +428,30 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- PRICING -->
 <section class="sec sec-alt" id="invest">
   <div class="container">
-    <div class="rv sec-center"><div class="sec-label">Your Investment</div><h2 class="sec-title">Everything Rebuilt.<br><em>Lower Price. Higher Value.</em></h2></div>
+    <div class="rv sec-center"><div class="sec-label">Your Investment</div><h2 class="sec-title">Two Mentorships.<br><em>One Price.</em></h2></div>
     <div class="price-card rv">
-      <div class="price-old">$2,500</div>
+      <p class="price-note" style="margin-bottom:16px;font-size:14px;color:var(--steel)">Trading System Mentorship — <span style="color:var(--white)">$2,500</span><br>Psychology Masterclass — <span style="color:var(--white)">$1,500</span></p>
+      <p class="price-note" style="margin-bottom:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--steel)">Combined Value</p>
+      <div class="price-old">$4,000</div>
       <div class="price-amt">$1,500</div>
-      <div class="price-save">Save $1,000 — Genesis Pricing</div>
+      <div class="price-save">Save $2,500 — Both Included</div>
       <p class="price-note">One-time payment · No subscriptions · No hidden fees</p>
       <ul class="price-list">
         <li><span class="chk">✓</span> 8 system modules (rebuilt from scratch)</li>
-        <li><span class="chk">✓</span> 8 trading psychology modules with guided meditations</li>
+        <li><span class="chk">✓</span> 4-module Trading Psychology Masterclass</li>
         <li><span class="chk">✓</span> New proprietary trading systems with verified edge</li>
         <li><span class="chk">✓</span> Full NinjaTrader indicator suite (new builds)</li>
-        <li><span class="chk">✓</span> Automated chart traders — entry, stop, & target placed by max risk</li>
-        <li><span class="chk">✓</span> Interactive study guides for every module</li>
-        <li><span class="chk">✓</span> 3× private 1:1 coaching sessions via Zoom</li>
+        <li><span class="chk">✓</span> Automated trade entries — entry, stop, & target placed by max risk</li>
+        <li><span class="chk">✓</span> University-quality study guides, flash cards & drills</li>
+        <li><span class="chk">✓</span> Group coaching sessions via Zoom</li>
         <li><span class="chk">✓</span> Ongoing support & community via Discord</li>
-        <li><span class="chk">✓</span> Recorded training sessions library</li>
+        <li><span class="chk">✓</span> 30+ hours recorded training library</li>
+        <li><span class="chk">✓</span> Trade journal + psychology journal</li>
+        <li><span class="chk">✓</span> Graduation certificate upon completing 100 backtested trades</li>
         <li><span class="chk">✓</span> Private mailing list (videos, webinars, skill sessions)</li>
         <li><span class="chk">✓</span> Lifetime access + all future updates</li>
       </ul>
-      <a href="https://www.paypal.com/ncp/payment/KNY2SYAV7BKVU" class="btn btn-lg" target="_blank" rel="noopener" style="width:100%;justify-content:center">
+      <a href="https://www.paypal.com/ncp/payment/LANKWFTKHP86N" class="btn btn-lg" target="_blank" rel="noopener" style="width:100%;justify-content:center">
         <span>Secure Your Spot — $1,500</span>
         <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -455,15 +468,15 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
   <div class="container">
     <div class="rv sec-center"><div class="sec-label">FAQ</div><h2 class="sec-title">Got <em>Questions?</em></h2></div>
     <div class="faq-wrap rv">
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Who is this for?<span class="faq-ic">+</span></button><div class="faq-a"><p>Serious aspiring and intermediate futures traders who want structure — not signals. If you're stuck in a cycle of inconsistency, emotional execution, or strategy-hopping, this program gives you a defined, rule-based framework to trade with clarity. Built for people who want to think for themselves.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What makes the Genesis Edition different?<span class="faq-ic">+</span></button><div class="faq-a"><p>Everything was rebuilt from scratch. New quantitatively backtested trading systems. New NinjaTrader indicators and automated chart traders that calculate your entry, stop, and target based on max risk. Rewritten curriculum condensed into 8 focused modules. An entirely new 8-module trading psychology track with guided meditation recordings. Coaching via Zoom with ongoing Discord support. A structured 60-day format. And a lower price — $1,500 instead of $2,500.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need trading experience?<span class="faq-ic">+</span></button><div class="faq-a"><p>No. Module 01 starts from the ground up — price action fundamentals and core market mechanics. The program is structured for progressive skill-building, and the 1:1 sessions are calibrated to your level.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What platform do I need?<span class="faq-ic">+</span></button><div class="faq-a"><p>NinjaTrader 8. All indicators and system tools are built specifically for NT8. A free simulation account is available so you can start practicing with zero financial risk.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How are the coaching sessions structured?<span class="faq-ic">+</span></button><div class="faq-a"><p>Three private Zoom sessions: a 60-minute onboarding, a 60-minute implementation review after the curriculum, and a 60-minute performance review after your 100-trade backtest. Each is focused, structured, and recorded. Between sessions, you have ongoing access via Discord for questions, chart reviews, and community support.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Tell me about the psychology + meditation program.<span class="faq-ic">+</span></button><div class="faq-a"><p>Eight dedicated modules covering awareness, fear, tilt, discipline, patience, confidence, loss acceptance, and peak performance. Each includes a guided meditation recording designed specifically for traders — practical tools for pre-session preparation and post-session recovery, not generic mindfulness content.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why did the price drop?<span class="faq-ic">+</span></button><div class="faq-a"><p>The systems are stronger, the content is deeper, and the mission hasn't changed. Lowering the price removes a barrier for disciplined traders ready to put in the work. Genesis pricing won't last forever.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens after 60 days?<span class="faq-ic">+</span></button><div class="faq-a"><p>You keep lifetime access to everything — all modules, indicators, chart traders, study guides, meditation recordings, and future updates. You stay in the private Discord community and mailing list. The 60 days are the structured implementation phase — the resources are yours permanently.</p></div></div>
-      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long until I see results?<span class="faq-ic">+</span></button><div class="faq-a"><p>Depends on your discipline and consistency. The system has statistically validated edge — but execution is on you. Experienced traders often see measurable improvement within the 60-day program. Beginners should plan for 6–12 months of structured practice afterward. Trading is a skill profession that rewards commitment.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Who is this for?<span class="faq-ic">+</span></button><div class="faq-a"><p>Aspiring and intermediate futures traders who want a structured, rule-based system — not signals or hand-holding. If you're stuck in a cycle of inconsistency, emotional decision-making, or jumping between strategies, this program gives you a defined framework to trade with clarity and confidence. Built for traders who want to think independently and develop real skill.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What makes this a Mentorship Masterclass?<span class="faq-ic">+</span></button><div class="faq-a"><p>It's two mentorships in one. A complete trading system with proprietary indicators, automated trade entries, and 8 focused modules — plus a full Trading Psychology Masterclass covering neuroplasticity, self-image reprogramming, emotional IQ, and peak performance. Group coaching via Zoom with ongoing Discord support. A structured 60-day format with bi-weekly milestones. Combined value of $4,000 — yours for $1,500.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need trading experience?<span class="faq-ic">+</span></button><div class="faq-a"><p>One year of experience is recommended. However, beginners can still learn — you'll have access to 30+ hours of supplemental recorded material from prior mentorship cohorts. Module 01 starts from the ground up with price action fundamentals and core market mechanics. The program is structured for progressive skill-building, and the group coaching sessions are designed to support traders at every level.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What platform do I need?<span class="faq-ic">+</span></button><div class="faq-a"><p>NinjaTrader 8. All indicators, automated trade entries, and system tools are built specifically for NT8. A free simulation account is available so you can start practicing with zero financial risk.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How are the coaching sessions structured?<span class="faq-ic">+</span></button><div class="faq-a"><p>Structured group coaching sessions via Zoom — covering onboarding, implementation review, and performance analysis. Each session is focused, recorded, and accompanied by session notes. Between sessions, you have ongoing access via Discord for questions, screen shares, chart reviews, and community support.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Tell me about the Psychology Masterclass.<span class="faq-ic">+</span></button><div class="faq-a"><p>A complete mental game program in 4 modules — covering neuroplasticity, brain-state optimization, self-image reprogramming, emotional IQ, mental toughness, and peak performance. Built on Mark Douglas principles, Al Brooks methodologies, and modern performance psychology. This isn't generic mindfulness — it's a structured system for overcoming repeated mistakes, building real confidence, and cultivating success in both trading and life.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is the price lower than the combined value?<span class="faq-ic">+</span></button><div class="faq-a"><p>The trading system mentorship alone is valued at $2,500 and the Psychology Masterclass at $1,500 — that's $4,000 in combined value. Bundling them together at $1,500 removes the barrier for disciplined traders ready to commit to both the technical and mental game. Platinum pricing won't last forever.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens after 60 days?<span class="faq-ic">+</span></button><div class="faq-a"><p>You keep lifetime access to everything — all modules, indicators, automated trade entries, study guides, journals, and future updates. You stay in the private Discord community and mailing list. The 60 days are the structured implementation phase — the resources are yours permanently.</p></div></div>
+      <div class="faq-i"><button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long until I see results?<span class="faq-ic">+</span></button><div class="faq-a"><p>Depends on your discipline and consistency. The system has a statistically validated edge — but execution is on you. Experienced traders often see measurable improvement within the 60-day program. Beginners should plan for a minimum of 12 months of structured practice. Most students receive prop firm payouts and see a return on their investment within the first 6 months. Trading is a skill profession that rewards commitment.</p></div></div>
     </div>
   </div>
 </section>
@@ -473,9 +486,9 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
   <div class="container rv">
     <h2>Stop Guessing.<br><em>Start Executing.</em></h2>
     <p class="final-tagline">Trade Like an Algo. Engineered for Consistency. Designed for Precision.</p>
-    <p>Genesis Edition launches May 10, 2026. Your blueprint is waiting.</p>
-    <a href="https://www.paypal.com/ncp/payment/KNY2SYAV7BKVU" class="btn btn-lg" target="_blank" rel="noopener">
-      <span>Enroll Now — $1,500</span>
+    <p>Platinum Edition launches May 10, 2026. Your blueprint is waiting.</p>
+    <a href="https://www.paypal.com/ncp/payment/LANKWFTKHP86N" class="btn btn-lg" target="_blank" rel="noopener">
+      <span>Enroll Now</span>
       <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
@@ -486,7 +499,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
   <img src="stb-logo-full.png" alt="Systematic Trader's Blueprint" class="footer-logo">
   <div class="flinks">
     <a href="https://www.instagram.com/ikilledmarlon" target="_blank">Instagram</a>
-    <a href="https://www.paypal.com/ncp/payment/KNY2SYAV7BKVU" target="_blank">Enroll</a>
+    <a href="https://www.paypal.com/ncp/payment/LANKWFTKHP86N" target="_blank">Enroll</a>
   </div>
   <p>&copy; 2026 TCBT LLC · The Systematic Trader's Blueprint · All Rights Reserved</p>
   <p style="margin-top:4px">Trading futures involves substantial risk of loss. Past performance is not indicative of future results.</p>
@@ -499,7 +512,7 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 // Countdown
 function tick(){
-  const launch=new Date('2026-05-10T09:30:00-04:00'),now=new Date(),d=launch-now;
+  const launch=new Date('2026-05-10T12:00:00-04:00'),now=new Date(),d=launch-now;
   if(d<=0){
     document.getElementById('cd-d').textContent='0';
     document.getElementById('cd-h').textContent='0';
