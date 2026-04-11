@@ -185,12 +185,15 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 /* ===== VIDEO REELS ===== */
 .vid-scroll{display:flex;gap:16px;margin-top:48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:none}
 .vid-scroll::-webkit-scrollbar{display:none}
-.vid-card{flex-shrink:0;width:220px;scroll-snap-align:start;border-radius:16px;overflow:hidden;position:relative;background:var(--card);border:1px solid var(--border);transition:border-color .3s}
+.vid-card{flex-shrink:0;width:220px;scroll-snap-align:start;border-radius:16px;overflow:hidden;position:relative;background:var(--card);border:1px solid var(--border);transition:border-color .3s;cursor:pointer}
 @media(min-width:768px){.vid-card{width:260px}}
 .vid-card:hover{border-color:rgba(232,146,42,.25)}
 .vid-card video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:15px}
-.vid-card .vid-placeholder{width:100%;aspect-ratio:9/16;background:var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--steel);font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase}
-.vid-card .vid-placeholder svg{opacity:.4}
+.vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(232,146,42,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s;pointer-events:none;z-index:2}
+.vid-play svg{margin-left:3px}
+.vid-card:hover .vid-play{background:var(--amber);transform:translate(-50%,-50%) scale(1.1)}
+.vid-card.playing .vid-play{opacity:0;transform:translate(-50%,-50%) scale(0)}
+.vid-card.playing{border-color:var(--amber)}
 .vid-label{padding:12px 16px;font-family:var(--mono);font-size:10px;color:var(--steel);letter-spacing:1px;text-transform:uppercase;text-align:center}
 
 /* ===== TESTIMONIALS ===== */
@@ -411,11 +414,11 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
     <div class="rv sec-center"><div class="sec-label">Live Execution</div><h2 class="sec-title">See the System <em>in Action.</em></h2></div>
   </div>
   <div class="vid-scroll" style="padding-left:max(20px,calc((100vw - 1100px)/2 + 20px));padding-right:20px">
-    <div class="vid-card"><video src="videos/vid1.mp4" playsinline muted loop autoplay></video><div class="vid-label">Trade Breakdown</div></div>
-    <div class="vid-card"><video src="videos/vid2.mp4" playsinline muted loop autoplay></video><div class="vid-label">Live Entry</div></div>
-    <div class="vid-card"><video src="videos/vid3.mp4" playsinline muted loop autoplay></video><div class="vid-label">Scalp Execution</div></div>
-    <div class="vid-card"><video src="videos/vid4.mp4" playsinline muted loop autoplay></video><div class="vid-label">Reversal Setup</div></div>
-    <div class="vid-card"><video src="videos/vid5.mp4" playsinline muted loop autoplay></video><div class="vid-label">Breakout Trade</div></div>
+    <div class="vid-card" onclick="playVid(this)"><video src="videos/vid1.mp4" playsinline loop preload="metadata"></video><div class="vid-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="6 3 20 12 6 21"/></svg></div><div class="vid-label">Trade Breakdown</div></div>
+    <div class="vid-card" onclick="playVid(this)"><video src="videos/vid2.mp4" playsinline loop preload="metadata"></video><div class="vid-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="6 3 20 12 6 21"/></svg></div><div class="vid-label">Live Entry</div></div>
+    <div class="vid-card" onclick="playVid(this)"><video src="videos/vid3.mp4" playsinline loop preload="metadata"></video><div class="vid-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="6 3 20 12 6 21"/></svg></div><div class="vid-label">Scalp Execution</div></div>
+    <div class="vid-card" onclick="playVid(this)"><video src="videos/vid4.mp4" playsinline loop preload="metadata"></video><div class="vid-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="6 3 20 12 6 21"/></svg></div><div class="vid-label">Reversal Setup</div></div>
+    <div class="vid-card" onclick="playVid(this)"><video src="videos/vid5.mp4" playsinline loop preload="metadata"></video><div class="vid-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="6 3 20 12 6 21"/></svg></div><div class="vid-label">Breakout Trade</div></div>
   </div>
 </section>
 
@@ -569,6 +572,29 @@ function tick(){
   document.getElementById('cd-s').textContent=Math.floor((d%6e4)/1e3);
 }
 tick();setInterval(tick,1000);
+
+// Video player — tap to play with audio, only one at a time
+let activeVid=null;
+function playVid(card){
+  const vid=card.querySelector('video');
+  // If this one is already playing, pause it
+  if(activeVid===vid){
+    vid.pause();
+    card.classList.remove('playing');
+    activeVid=null;
+    return;
+  }
+  // Pause any currently playing video
+  if(activeVid){
+    activeVid.pause();
+    activeVid.closest('.vid-card').classList.remove('playing');
+  }
+  // Play the tapped one with audio
+  vid.muted=false;
+  vid.play();
+  card.classList.add('playing');
+  activeVid=vid;
+}
 </script>
 </body>
 </html>
