@@ -138,7 +138,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 /* ===== PROOF STRIP ===== */
 .proof-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
 .proof{display:flex;gap:0;width:max-content;animation:proofscroll 18s linear infinite}
-@media(min-width:600px){.proof{animation:none;width:100%;display:grid;grid-template-columns:repeat(4,1fr)}}
+@media(min-width:600px){.proof{animation:none;width:100%;display:grid;grid-template-columns:repeat(5,1fr)}}
 @keyframes proofscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .proof-item{text-align:center;padding:28px 24px;border-right:1px solid var(--border);min-width:140px}
 @media(min-width:600px){.proof-item{min-width:auto}}
@@ -173,8 +173,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .price-modal-body::-webkit-scrollbar{display:none}
 @media(min-width:768px){.price-modal-body{padding:52px 44px}}
 .price-modal-body::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--amber-glow),var(--amber));background-size:200% 100%;animation:shimmer 3s linear infinite;border-radius:20px 20px 0 0}
-.price-modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--steel);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;transition:all .3s;z-index:2}
-.price-modal-close:hover{border-color:var(--amber);color:var(--white)}
+.price-modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:none;background:#EF4444;color:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;font-weight:700;transition:all .3s;z-index:2}
+.price-modal-close:hover{background:#DC2626;transform:scale(1.1)}
 
 /* ===== DUAL TRACK MODULES ===== */
 .dual-header{margin-bottom:48px}
@@ -329,7 +329,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 
 <!-- COUNTDOWN BLOCK -->
 <div class="cd-block">
-  <div class="cd-label">Mentorship Masterclass Launches In</div>
+  <div class="cd-label">Mentorship Masterclass Launches</div>
   <div class="cd-date">May 10, 2026 · 12:00 PM ET</div>
   <div class="cd-grid">
     <div class="cd-unit"><div class="cd-val" id="cd-d">--</div><div class="cd-lbl">Days</div></div>
@@ -349,34 +349,27 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <section class="hero">
   <div class="hero-edition">Dual Mentorship</div>
   <h1>The Systematic<br>Trader's <em>Blueprint</em><br>Mentorship Masterclass</h1>
-  <p class="hero-tagline">Trade Like an Algo. Engineered for Consistency.</p>
+  <p class="hero-tagline">Trade Like an Algo. Engineered for Consistency. Built for Discipline.</p>
   <p class="hero-desc">Two mentorships in one. A complete trading system rebuilt from the ground up — plus a full Trading Psychology Masterclass rooted in neuroplasticity, Mark Douglas principles, and peak performance training. 60 days of structured group mentorship.</p>
   <div class="hero-actions">
     <a href="#system" class="btn btn-lg">Explore the Program
       <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
-  <div class="hero-meta">
-    <div class="hero-meta-item"><div class="hero-meta-val">60</div><div class="hero-meta-lbl">Day Program</div></div>
-    <div class="hero-meta-item"><div class="hero-meta-val">8+4</div><div class="hero-meta-lbl">Dual-Track Modules</div></div>
-    <div class="hero-meta-item"><div class="hero-meta-val">10K+</div><div class="hero-meta-lbl">Verified Trades</div></div>
-    <div class="hero-meta-item"><div class="hero-meta-val">Funded</div><div class="hero-meta-lbl">Multi-Prop Firm</div></div>
-    <div class="hero-meta-item"><div class="hero-meta-val">∞</div><div class="hero-meta-lbl">Lifetime Access</div></div>
-  </div>
 </section>
 
 <!-- PROOF STRIP -->
 <div class="proof-wrap">
   <div class="proof">
+    <div class="proof-item"><div class="proof-val">60</div><div class="proof-lbl">Day Program</div></div>
+    <div class="proof-item"><div class="proof-val">12</div><div class="proof-lbl">Modules</div></div>
     <div class="proof-item"><div class="proof-val">Dual</div><div class="proof-lbl">Mentorship</div></div>
-    <div class="proof-item"><div class="proof-val">8</div><div class="proof-lbl">System Modules</div></div>
-    <div class="proof-item"><div class="proof-val">4</div><div class="proof-lbl">Psychology Modules</div></div>
     <div class="proof-item"><div class="proof-val">10K+</div><div class="proof-lbl">Verified Trades</div></div>
     <div class="proof-item"><div class="proof-val">∞</div><div class="proof-lbl">Lifetime Access</div></div>
     <!-- Duplicate for seamless loop on mobile -->
+    <div class="proof-item"><div class="proof-val">60</div><div class="proof-lbl">Day Program</div></div>
+    <div class="proof-item"><div class="proof-val">12</div><div class="proof-lbl">Modules</div></div>
     <div class="proof-item"><div class="proof-val">Dual</div><div class="proof-lbl">Mentorship</div></div>
-    <div class="proof-item"><div class="proof-val">8</div><div class="proof-lbl">System Modules</div></div>
-    <div class="proof-item"><div class="proof-val">4</div><div class="proof-lbl">Psychology Modules</div></div>
     <div class="proof-item"><div class="proof-val">10K+</div><div class="proof-lbl">Verified Trades</div></div>
     <div class="proof-item"><div class="proof-val">∞</div><div class="proof-lbl">Lifetime Access</div></div>
   </div>
@@ -385,7 +378,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <!-- WHAT YOU GET -->
 <section class="sec" id="system">
   <div class="container">
-    <div class="rv"><div class="sec-label">What You Get</div><h2 class="sec-title">Dual Mentorship. <em>One Program.</em><br>A Complete Operating System<br>for Building a Consistent Trader.</h2><p class="sec-desc">A trading system mentorship and a full psychology masterclass — running simultaneously. Because edge without discipline is just information.</p></div>
+    <div class="rv"><div class="sec-label">What You Get</div><h2 class="sec-title">Two Mentorships. <em>One Program.</em><br>A Complete Operating System<br>for Building a Consistent Trader.</h2><p class="sec-desc">A 12-module trading system mentorship and a full psychology masterclass — running simultaneously. Because edge without discipline is just information.</p></div>
     <div class="get-wrap">
     <div class="get-grid">
       <div class="get-card"><div class="get-icon">⚡</div><h3>New Trading Systems</h3><p>Rebuilt from the data up. Pattern-based strategies with quantitatively validated entries, stops, and targets across 10,000+ verified trades.</p></div>
@@ -600,7 +593,7 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
 <section class="final-cta">
   <div class="container rv">
     <h2>Stop Guessing.<br><em>Start Executing.</em></h2>
-    <p class="final-tagline">Trade Like an Algo. Engineered for Consistency. Designed for Precision.</p>
+    <p class="final-tagline">Trade Like an Algo. Engineered for Consistency. Built for Discipline.</p>
     <p>Platinum Edition launches May 10, 2026. Your blueprint is waiting.</p>
     <a href="https://www.paypal.com/ncp/payment/LANKWFTKHP86N" class="btn btn-lg" target="_blank" rel="noopener">
       <span>Enroll Now</span>
@@ -667,6 +660,75 @@ function playVid(card){
 // Pricing modal
 function openPriceModal(){document.getElementById('priceModal').classList.add('open');document.body.style.overflow='hidden'}
 function closePriceModal(){document.getElementById('priceModal').classList.remove('open');document.body.style.overflow=''}
+
+// Touch-drag for scroll wheels: drag left/right, hold to pause, release to resume
+document.querySelectorAll('.proof, .get-grid, .dual-grid, .test-track').forEach(track=>{
+  let startX,scrollLeft,isDragging=false,wasDragging=false;
+  const wrap=track.parentElement;
+  
+  function getPos(){return track.getBoundingClientRect().left - wrap.getBoundingClientRect().left}
+  
+  track.addEventListener('touchstart',e=>{
+    isDragging=true;wasDragging=false;
+    startX=e.touches[0].pageX;
+    scrollLeft=getPos();
+    track.style.animationPlayState='paused';
+  },{passive:true});
+  
+  track.addEventListener('touchmove',e=>{
+    if(!isDragging)return;
+    wasDragging=true;
+    const x=e.touches[0].pageX;
+    const diff=x-startX;
+    track.style.animation='none';
+    track.style.transform='translateX('+(scrollLeft+diff)+'px)';
+  },{passive:true});
+  
+  track.addEventListener('touchend',()=>{
+    isDragging=false;
+    // Resume animation after a short delay
+    setTimeout(()=>{
+      track.style.animation='';
+      track.style.transform='';
+      track.style.animationPlayState='';
+    },wasDragging?1500:0);
+  });
+  
+  // Mouse drag for desktop
+  track.addEventListener('mousedown',e=>{
+    isDragging=true;wasDragging=false;
+    startX=e.pageX;
+    scrollLeft=getPos();
+    track.style.animationPlayState='paused';
+    track.style.cursor='grabbing';
+  });
+  track.addEventListener('mousemove',e=>{
+    if(!isDragging)return;
+    wasDragging=true;
+    e.preventDefault();
+    const diff=e.pageX-startX;
+    track.style.animation='none';
+    track.style.transform='translateX('+(scrollLeft+diff)+'px)';
+  });
+  track.addEventListener('mouseup',()=>{
+    isDragging=false;
+    track.style.cursor='';
+    setTimeout(()=>{
+      track.style.animation='';
+      track.style.transform='';
+      track.style.animationPlayState='';
+    },wasDragging?1500:0);
+  });
+  track.addEventListener('mouseleave',()=>{
+    if(isDragging){
+      isDragging=false;
+      track.style.cursor='';
+      track.style.animation='';
+      track.style.transform='';
+      track.style.animationPlayState='';
+    }
+  });
+});
 </script>
 
 <!-- PRICING MODAL -->
