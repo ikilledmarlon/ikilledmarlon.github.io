@@ -69,6 +69,15 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .cd-val{font-family:var(--display);font-size:clamp(28px,7vw,56px);font-weight:800;color:var(--amber);line-height:1}
 .cd-lbl{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-top:6px}
 
+/* ===== HERO VIDEO ===== */
+.hero-vid-wrap{position:relative;max-width:800px;margin:0 auto;padding:0 20px;cursor:pointer}
+@media(min-width:768px){.hero-vid-wrap{padding:0 40px}}
+.hero-vid{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;display:block;border:1px solid rgba(232,146,42,.15)}
+.hero-vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;background:rgba(232,146,42,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s;pointer-events:auto}
+.hero-vid-play svg{margin-left:3px}
+.hero-vid-wrap:hover .hero-vid-play{background:var(--amber);transform:translate(-50%,-50%) scale(1.1)}
+.hero-vid-wrap.playing .hero-vid-play{opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(0)}
+
 /* ===== HERO ===== */
 .hero{min-height:90vh;min-height:90dvh;display:flex;flex-direction:column;justify-content:center;padding:60px 20px 60px;position:relative;overflow:hidden;text-align:center}
 @media(min-width:768px){.hero{padding:80px 40px 80px}}
@@ -321,6 +330,12 @@ footer p{color:var(--steel);font-size:11px;line-height:1.8;opacity:.6}
     <div class="cd-unit"><div class="cd-val" id="cd-m">--</div><div class="cd-lbl">Minutes</div></div>
     <div class="cd-unit"><div class="cd-val" id="cd-s">--</div><div class="cd-lbl">Seconds</div></div>
   </div>
+</div>
+
+<!-- HERO VIDEO -->
+<div class="hero-vid-wrap">
+  <video class="hero-vid" src="videos/vid6.mp4#t=0.1" playsinline loop preload="auto" onclick="this.paused?this.play():this.pause();this.muted=false;this.closest('.hero-vid-wrap').classList.toggle('playing')"></video>
+  <div class="hero-vid-play" onclick="const v=this.previousElementSibling;v.muted=false;v.play();this.parentElement.classList.add('playing')"><svg width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="6 3 20 12 6 21"/></svg></div>
 </div>
 
 <!-- HERO -->
